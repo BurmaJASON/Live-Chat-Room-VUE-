@@ -13,7 +13,7 @@
 import { ref } from '@vue/reactivity'
 import signInC from '../composables/signInC'
 export default {
-  setup () {
+  setup (props, context ) {
     let email = ref('');
     let password = ref('');
 
@@ -23,7 +23,7 @@ export default {
       let res = await logIn(email.value,password.value);
       
       if(res) {
-        console.log(res.user);
+        context.emit('enterChatRoom');
       }
     }
 

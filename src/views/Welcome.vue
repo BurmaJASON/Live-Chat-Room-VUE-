@@ -8,10 +8,10 @@
         </div>
         <div class="welcome">
             <div v-if="showLoginForm">
-                <Login></Login>
+                <Login @enterChatRoom="enterChatRoom"></Login>
             </div>
             <div v-else>
-                <SignUp></SignUp>
+                <SignUp @enterChatRoom="enterChatRoom"></SignUp>
             </div>
         </div>
     </div>
@@ -23,14 +23,20 @@
 import SignUp from '../components/SignUp'
 import Login from '../components/Login'
 import { ref } from '@vue/reactivity';
+import { useRouter } from 'vue-router';
 
 export default {
   components: { SignUp, Login },
 
   setup() {
     let showLoginForm = ref(true);
+    let router = useRouter();
 
-    return { showLoginForm }
+    let enterChatRoom = () => {
+      router.push({ name : 'ChatView' });
+    }
+
+    return { showLoginForm,enterChatRoom }
   }
 
 }
