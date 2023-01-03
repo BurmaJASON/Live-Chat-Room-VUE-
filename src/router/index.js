@@ -10,7 +10,8 @@ const routes = [
   {
     path : '/chatroom',
     name : 'ChatView',
-    component : ChatView
+    component : ChatView,
+    
   }
 ]
 

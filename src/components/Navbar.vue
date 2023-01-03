@@ -1,29 +1,31 @@
 <template>
-  <div class="container">
-    <p>user name</p>
-    <span>user logged in email</span>
-    <button @click="logOut">Log Out</button>
+  <div class="container" v-if="user" >
+    <p>{{ user.displayName }}</p>
+    <span>{{ user.email }}</span>
+    <button @click="signOut">Log Out</button>
   </div>
 </template>
 
 <script>
 import { ref } from '@vue/reactivity'
 import { auth } from '@/firebase/config';
-import { signOut } from '@firebase/auth';
+import getUser from '../composables/getUser'
+import logoutUser from  '../composables/logoutUser'
 export default {
     setup () {
-        let error = ref(null);
-        let logOut = async() => {
-            try {
-                await  signOut(auth);
-                console.log('user logout');
-            }catch (err) {
-                error.value = err.message;
-                console.log(error.value);
-            }
+        let { user } = getUser();
+        
+        let { error, logout } = logoutUser();
+
+        let signOut = async () => {
+            await logout();
         }
 
-        return { logOut,error }
+        
+
+
+
+        return { user, error, signOut }
     }
 }
 </script>
