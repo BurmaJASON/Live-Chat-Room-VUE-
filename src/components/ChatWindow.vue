@@ -4,7 +4,7 @@
       <div class="single" v-for="message in formattedMessages" :key="message.id">
         <span class="created_at">{{ message.created_at }}</span>
         <span class="name">{{  message.name }}</span>
-        <span class="messages">{{ message.message }}</span>
+        <span class="messages message">{{ message.message }}</span>
       </div>
     </div>
   </div>
@@ -56,5 +56,31 @@ export default {
 </script>
 
 <style>
-
+  .chat-window {
+    padding: 30px 20px;    
+  }
+  .single {
+    margin: 20px 0;
+  }
+  .created_at {
+    display: block;
+    color: rgb(188, 188, 188);
+    font-size: 11px;
+    margin-bottom: 7px;
+  }
+  .name {
+    font-weight: bold;
+    margin-right: 6px;
+  }
+  .messages {
+    max-height: 400px;
+    overflow: auto;
+  }
+  .message {
+    border: 1px solid #5f636b;
+    border-radius: 20px;
+    padding: 6px 10px;
+    background-color: #5f636b;
+    color: white;
+  }
 </style>

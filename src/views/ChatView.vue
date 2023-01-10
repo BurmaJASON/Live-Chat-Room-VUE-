@@ -1,7 +1,7 @@
 <template>
   <div class="chat-container">
     <Navbar></Navbar>
-    <div>
+    <div class="chat">
       <ChatWindow></ChatWindow>
       <TypeChat></TypeChat>
     </div>
@@ -41,6 +41,21 @@ export default {
 <style>
   .chat-container {
     display: flex;
+    width: 90%;
+    max-width: 800px;
+    margin: 80px auto;
+    border-radius: 20px;
+    box-shadow: 2px 4px 6px rgba(28, 6, 49, 0.1);
     background-color: #2e3138;
-  }
+    /* position: relative; */
+}
+.chat {
+  padding: 5px;
+  border-left: 0.2px solid rgb(0, 0, 0);
+  border-radius: 75px;
+}
+
+
+ 
+  
 </style>

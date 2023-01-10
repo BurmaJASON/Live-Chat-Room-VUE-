@@ -1,6 +1,6 @@
 <template>
   <form>
-    <textarea placeholder="text message and hit enter to send" v-model="message" @keypress.enter="handleSubmit"></textarea>
+    <textarea placeholder="text message and hit enter to send.." v-model="message" @keypress.enter="handleSubmit" cols="55" rows="1"></textarea>
   </form>
 </template>
 
@@ -31,5 +31,18 @@ export default {
 </script>
 
 <style>
-
+  form {
+    margin: 10px;
+  }
+  textarea {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 6px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 30px;
+    font-family: inherit;
+    outline: none;
+  }
 </style>

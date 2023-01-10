@@ -1,8 +1,8 @@
 <template>
-  <div class="" v-if="user" >
-    <p>{{ user.displayName }}</p>
-    <p>{{ user.email }}</p>
-    <button @click="signOut">Log Out</button>
+  <div class="info" v-if="user" >
+    <span class="displayname">{{ user.displayName }}</span> <br>
+    <small class="email">{{ user.email }}</small>
+    <button @click="signOut" class="logout">Log Out</button>
   </div>
 </template>
 
@@ -31,5 +31,19 @@ export default {
 </script>
 
 <style>
-
+  .info {
+    padding: 25px;
+    padding-top: 50px;
+    width: 140px;
+  }
+  .displayname {
+    font-size: 22px;
+  }
+  .email {
+    color: gray;
+  }
+  .logout {
+    margin-top: 20px;
+  }
+  
 </style>
